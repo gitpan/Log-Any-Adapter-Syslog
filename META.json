@@ -7,14 +7,19 @@
       "Carp" : "0",
       "File::Find" : "0",
       "File::Temp" : "0",
+      "Log::Any" : "0",
+      "Log::Any::Adapter" : "0",
       "Scalar::Util" : "0",
+      "Test::Exception" : "0",
+      "Test::MockModule" : "0",
       "Test::More" : "0.88",
-      "perl" : "5.004"
+      "perl" : "5.004",
+      "vars" : "0"
    },
    "configure_requires" : {
       "ExtUtils::MakeMaker" : "6.31"
    },
-   "generated_by" : "Dist::Zilla version 2.101040",
+   "generated_by" : "Dist::Zilla version 2.101290",
    "license" : "perl",
    "meta-spec" : {
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html",
@@ -28,7 +33,7 @@
       "Log::Any::Adapter::Util" : "0",
       "Unix::Syslog" : "0"
    },
-   "version" : "1.0",
+   "version" : "1.1",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -39,42 +44,42 @@
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
             "name" : "@DANIELP/GatherDir",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExecDir",
             "name" : "@DANIELP/ExecDir",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ShareDir",
             "name" : "@DANIELP/ShareDir",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
             "name" : "@DANIELP/PruneCruft",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ManifestSkip",
             "name" : "@DANIELP/ManifestSkip",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereq",
             "name" : "@DANIELP/AutoPrereq",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::PkgVersion",
             "name" : "@DANIELP/PkgVersion",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodVersion",
             "name" : "@DANIELP/PodVersion",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions",
@@ -94,7 +99,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",
             "name" : "@DANIELP/MetaTests",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::MinimumVersionTests",
@@ -114,42 +119,42 @@
          {
             "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
             "name" : "@DANIELP/PodSyntaxTests",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExtraTests",
             "name" : "@DANIELP/ExtraTests",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@DANIELP/MetaConfig",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaYAML",
             "name" : "@DANIELP/MetaYAML",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
             "name" : "@DANIELP/MetaJSON",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::License",
             "name" : "@DANIELP/License",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::Readme",
             "name" : "@DANIELP/Readme",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::MakeMaker",
             "name" : "@DANIELP/MakeMaker",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ChangelogFromGit",
@@ -159,7 +164,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Manifest",
             "name" : "@DANIELP/Manifest",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
@@ -169,12 +174,12 @@
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",
             "name" : "@DANIELP/TestRelease",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@DANIELP/ConfirmRelease",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -189,27 +194,27 @@
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@DANIELP/UploadToCPAN",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":InstallModules",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":TestFiles",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ExecFiles",
-            "version" : "2.101040"
+            "version" : "2.101290"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ShareFiles",
-            "version" : "2.101040"
+            "version" : "2.101290"
          }
       ],
       "zilla" : {
@@ -217,7 +222,7 @@
          "config" : {
             "is_trial" : 0
          },
-         "version" : "2.101040"
+         "version" : "2.101290"
       }
    }
 }
