@@ -1,6 +1,6 @@
 package Log::Any::Adapter::Syslog;
 BEGIN {
-  $Log::Any::Adapter::Syslog::VERSION = '1.1';
+  $Log::Any::Adapter::Syslog::VERSION = '1.2';
 }
 use strict;
 use warnings;
@@ -70,7 +70,7 @@ Log::Any::Adapter::Syslog - send Log::Any logs to syslog
 
 =head1 VERSION
 
-version 1.1
+version 1.2
 
 =head1 SYNOPSIS
 

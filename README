@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Log-Any-Adapter-Syslog,
-version 1.1:
+version 1.2:
 
   send Log::Any logs to syslog
 

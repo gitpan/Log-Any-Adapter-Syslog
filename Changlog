@@ -2,6 +2,20 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit c0205afc69710e66868ef2a318bb30690f1734f5
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Sat May 29 17:50:47 2010 +1000
+  
+    tests: use LOG_NDELAY rather than LOG_PERROR for better portability.
+
+    Some platforms don't define the LOG_PERROR option, and Unix::Syslog
+    doesn't export it where it doesn't exist. This fixes broken tests on
+    i86pc-solaris-64int 2.11, thanks CPAN Testers. 
+
+=====================================
+2010-05-11 23:10:00 +1000 release-1.1
+=====================================
+
   commit 3852d3d225382d9ada72a54da3ebd1e834dbb2e2
   Author: Daniel Pittman <daniel@rimspace.net>
   Date:   Tue May 11 18:42:28 2010 +1000

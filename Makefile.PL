@@ -20,7 +20,7 @@ my %WriteMakefileArgs = (
     'Scalar::Util' => '0',
     'Test::Exception' => '0',
     'Test::MockModule' => '0',
-    'Test::More' => '0.88',
+    'Test::More' => '0.94',
     'perl' => '5.004',
     'vars' => '0'
   },
@@ -37,7 +37,7 @@ my %WriteMakefileArgs = (
     'Log::Any::Adapter::Util' => '0',
     'Unix::Syslog' => '0'
   },
-  'VERSION' => '1.1',
+  'VERSION' => '1.2',
   'test' => {
     'TESTS' => 't/*.t'
   }
