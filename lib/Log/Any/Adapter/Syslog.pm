@@ -1,6 +1,6 @@
 package Log::Any::Adapter::Syslog;
-BEGIN {
-  $Log::Any::Adapter::Syslog::VERSION = '1.2';
+{
+  $Log::Any::Adapter::Syslog::VERSION = '1.3';
 }
 use strict;
 use warnings;
@@ -10,11 +10,13 @@ use base qw{Log::Any::Adapter::Base};
 
 use Unix::Syslog qw{:macros :subs};
 use File::Basename ();
+use Carp qw{cluck};
+
+my $log_params;
 
 # When initialized we connect to syslog.
 sub init {
     my ($self) = @_;
-    return if $self->{_opened};
 
     $self->{name} ||= File::Basename::basename($0);
     $self->{name} ||= 'perl';
@@ -22,10 +24,29 @@ sub init {
     $self->{options}  ||= LOG_PID;
     $self->{facility} ||= LOG_LOCAL7;
 
-    openlog($self->{name}, $self->{options}, $self->{facility});
+    # We want to avoid opening the syslog multiple times, but also catch the
+    # unsupported case where the parameters have changed.
+    if (not defined $log_params) {
 
-    $self->{_opened} = 1;
+        # First time in, note the parameters we used, and open the log>
+        $log_params = $self->_log_params;
+        openlog($self->{name}, $self->{options}, $self->{facility});
+    }
+    else {
+
+        # After that, warn if the check the parameters have changed.
+        if ($log_params ne $self->_log_params) {
+            cluck('Attempting to reinitialize Log::Any::Adapter::Syslog with new parameters');
+        }
+    }
+
     return $self;
+}
+
+sub _log_params {
+    my ($self) = @_;
+    return sprintf('%d,%d,%s',
+        $self->{options}, $self->{facility}, $self->{name});
 }
 
 # Create logging methods: debug, info, etc.
@@ -48,7 +69,7 @@ foreach my $method (Log::Any->logging_methods()) {
     }->{$method};
     defined($priority) or $priority = LOG_ERR; # unknown, take a guess.
 
-    make_method($method, sub { shift; syslog($priority, shift, @_) });
+    make_method($method, sub { shift; syslog($priority, '%s', join('', @_)) });
 }
 
 # Create detection methods: is_debug, is_info, etc.
@@ -70,7 +91,7 @@ Log::Any::Adapter::Syslog - send Log::Any logs to syslog
 
 =head1 VERSION
 
-version 1.2
+version 1.3
 
 =head1 SYNOPSIS
 

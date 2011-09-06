@@ -3,78 +3,80 @@ abstract: 'send Log::Any logs to syslog'
 author:
   - 'Daniel Pittman <daniel@rimspace.net>'
 build_requires:
-  Carp: 0
   File::Find: 0
   File::Temp: 0
   Log::Any: 0
   Log::Any::Adapter: 0
-  Scalar::Util: 0
   Test::Exception: 0
   Test::MockModule: 0
-  Test::More: 0.94
-  perl: 5.004
+  Test::More: 0.88
+  Test::Warn: 0
   vars: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 3.101461, CPAN::Meta::Converter version 2.101461'
+generated_by: 'Dist::Zilla version 4.300000, CPAN::Meta::Converter version 2.112150'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Log-Any-Adapter-Syslog
 requires:
+  Carp: 0
   File::Basename: 0
   Log::Any::Adapter::Base: 0
   Log::Any::Adapter::Util: 0
   Unix::Syslog: 0
-version: 1.2
+  base: 0
+  strict: 0
+  warnings: 0
+version: 1.3
 x_Dist_Zilla:
   plugins:
     -
-      class: Dist::Zilla::Plugin::BumpVersionFromGit
-      name: '@DANIELP/BumpVersionFromGit'
-      version: 0.006
+      class: Dist::Zilla::Plugin::Git::NextVersion
+      name: '@DANIELP/Git::NextVersion'
+      version: 1.112440
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@DANIELP/GatherDir'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@DANIELP/ExecDir'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@DANIELP/ShareDir'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@DANIELP/PruneCruft'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@DANIELP/ManifestSkip'
-      version: 3.101461
+      version: 4.300000
     -
-      class: Dist::Zilla::Plugin::AutoPrereq
-      name: '@DANIELP/AutoPrereq'
-      version: 3.101461
+      class: Dist::Zilla::Plugin::AutoPrereqs
+      name: '@DANIELP/AutoPrereqs'
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@DANIELP/PkgVersion'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::PodVersion
       name: '@DANIELP/PodVersion'
-      version: 3.101461
+      version: 4.300000
     -
-      class: Dist::Zilla::Plugin::ReportVersions
-      name: '@DANIELP/ReportVersions'
-      version: 1.101460
+      class: Dist::Zilla::Plugin::ReportVersions::Tiny
+      name: '@DANIELP/ReportVersions::Tiny'
+      version: 1.03
     -
       class: Dist::Zilla::Plugin::CompileTests
       name: '@DANIELP/CompileTests'
-      version: 1.100740
+      version: 1.112400
     -
       class: Dist::Zilla::Plugin::HasVersionTests
       name: '@DANIELP/HasVersionTests'
@@ -82,7 +84,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaTests
       name: '@DANIELP/MetaTests'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::MinimumVersionTests
       name: '@DANIELP/MinimumVersionTests'
@@ -90,7 +92,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PortabilityTests
       name: '@DANIELP/PortabilityTests'
-      version: 1.101420
+      version: 1.111840
     -
       class: Dist::Zilla::Plugin::SynopsisTests
       name: '@DANIELP/SynopsisTests'
@@ -98,7 +100,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@DANIELP/PodSyntaxTests'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::UnusedVarsTests
       name: '@DANIELP/UnusedVarsTests'
@@ -106,31 +108,35 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: '@DANIELP/ExtraTests'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@DANIELP/MetaConfig'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@DANIELP/MetaYAML'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@DANIELP/MetaJSON'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::License
       name: '@DANIELP/License'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::Readme
       name: '@DANIELP/Readme'
-      version: 3.101461
+      version: 4.300000
+    -
+      class: Dist::Zilla::Plugin::ReadmeMarkdownFromPod
+      name: '@DANIELP/ReadmeMarkdownFromPod'
+      version: 0.103510
     -
       class: Dist::Zilla::Plugin::MakeMaker
       name: '@DANIELP/MakeMaker'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::ChangelogFromGit
       name: '@DANIELP/ChangelogFromGit'
@@ -138,49 +144,57 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@DANIELP/Manifest'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@DANIELP/Git::Check'
-      version: 1.100760
+      version: 1.112440
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@DANIELP/TestRelease'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@DANIELP/ConfirmRelease'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@DANIELP/Git::Commit'
-      version: 1.100760
+      version: 1.112440
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@DANIELP/Git::Tag'
-      version: 1.100760
+      version: 1.112440
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@DANIELP/UploadToCPAN'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 3.101461
+      version: 4.300000
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':IncModules'
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 3.101461
+      version: 4.300000
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 3.101461
+      version: 4.300000
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':MainModule'
+      version: 4.300000
   zilla:
-    class: Dist::Zilla
+    class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 3.101461
+    version: 4.300000

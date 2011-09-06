@@ -2,35 +2,21 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
-  commit c0205afc69710e66868ef2a318bb30690f1734f5
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date:   Sat May 29 17:50:47 2010 +1000
+  commit 95f55916fe398b14668714ba195f560b2d643ad3
+  Author: Stephen Thirlwall <sdt@dr.com>
+  Date:   Sun Jul 31 20:19:29 2011 +1000
   
-    tests: use LOG_NDELAY rather than LOG_PERROR for better portability.
+    Fix for RT #69855
 
-    Some platforms don't define the LOG_PERROR option, and Unix::Syslog
-    doesn't export it where it doesn't exist. This fixes broken tests on
-    i86pc-solaris-64int 2.11, thanks CPAN Testers. 
+    https://rt.cpan.org/Ticket/Display.html?id=69855
 
-=====================================
-2010-05-11 23:10:00 +1000 release-1.1
-=====================================
-
-  commit 3852d3d225382d9ada72a54da3ebd1e834dbb2e2
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date:   Tue May 11 18:42:28 2010 +1000
+  commit c3020a800d016eeeac351c7c50ffb2e871244f19
+  Author: Stephen Thirlwall <stephen.thirlwall@strategicdata.com.au>
+  Date:   Fri Jul 29 11:39:22 2011 +1000
   
-    Import the branch with actual working code, not the early test branch.
+    Fix for RT #68730
 
-    This fixes the code, adds tests to verify it works, and is much less
-    embarrasing than the original code which was an early prototype before I
-    read the documentation well enough.
-
-  commit b370ba9015317f514e2ac75a90b3075818672bce
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date:   Tue May 11 23:03:41 2010 +1000
-  
-    git: ignore additional build files. 
+    https://rt.cpan.org/Ticket/Display.html?id=68730 
 
 ===================================
 End of changes in the last 365 days
