@@ -2,15 +2,15 @@
 use strict;
 use warnings;
 
-
+use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "send Log::Any logs to syslog",
-  "AUTHOR" => "Daniel Pittman <daniel\@rimspace.net>",
+  "ABSTRACT" => "Send Log::Any logs to syslog",
+  "AUTHOR" => "Daniel Pittman <daniel\@rimspace.net>, Stephen Thirlwall <sdt\@cpan.org>",
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
     "File::Temp" => 0,
@@ -30,7 +30,6 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Log::Any::Adapter::Syslog",
   "PREREQ_PM" => {
-    "Carp" => 0,
     "File::Basename" => 0,
     "Log::Any::Adapter::Base" => 0,
     "Log::Any::Adapter::Util" => 0,
@@ -39,7 +38,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.3",
+  "VERSION" => "1.4",
   "test" => {
     "TESTS" => "t/*.t t/options/*.t"
   }

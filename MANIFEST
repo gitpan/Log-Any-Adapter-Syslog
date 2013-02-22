@@ -1,4 +1,4 @@
-Changlog
+Changes
 LICENSE
 MANIFEST
 META.json
@@ -11,14 +11,20 @@ examples/example-logger.pl
 lib/Log/Any/Adapter/Syslog.pm
 t/00-compile.t
 t/000-report-versions-tiny.t
+t/author-critic.t
 t/options/defaults.t
 t/options/facility.t
 t/options/name.t
 t/options/options.t
 t/reinit.t
+t/release-check-changes.t
+t/release-cpan-changes.t
 t/release-distmeta.t
+t/release-eol.t
 t/release-has-version.t
+t/release-meta-json.t
 t/release-minimum-version.t
+t/release-no-tabs.t
 t/release-pod-syntax.t
 t/release-portability.t
 t/release-synopsis.t

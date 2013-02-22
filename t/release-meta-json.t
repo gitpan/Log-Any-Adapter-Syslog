@@ -9,8 +9,6 @@ BEGIN {
 
 
 use Test::More;
-
-eval 'use Test::Portability::Files';
-plan skip_all => 'Test::Portability::Files required for testing portability'
-    if $@;
-run_tests();
+eval 'use Test::CPAN::Meta::JSON';
+plan skip_all => 'Test::CPAN::Meta::JSON required for testing META.json' if $@;
+meta_json_ok();

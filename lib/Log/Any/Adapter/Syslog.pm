@@ -1,16 +1,15 @@
 package Log::Any::Adapter::Syslog;
-{
-  $Log::Any::Adapter::Syslog::VERSION = '1.3';
-}
 use strict;
 use warnings;
+
+# ABSTRACT: Send Log::Any logs to syslog
+our $VERSION = '1.4'; # VERSION
 
 use Log::Any::Adapter::Util qw{make_method};
 use base qw{Log::Any::Adapter::Base};
 
 use Unix::Syslog qw{:macros :subs};
 use File::Basename ();
-use Carp qw{cluck};
 
 my $log_params;
 
@@ -18,26 +17,17 @@ my $log_params;
 sub init {
     my ($self) = @_;
 
-    $self->{name} ||= File::Basename::basename($0);
-    $self->{name} ||= 'perl';
-
+    $self->{name}     ||= File::Basename::basename($0) || 'perl';
     $self->{options}  ||= LOG_PID;
     $self->{facility} ||= LOG_LOCAL7;
 
-    # We want to avoid opening the syslog multiple times, but also catch the
-    # unsupported case where the parameters have changed.
-    if (not defined $log_params) {
+    # We want to avoid re-opening the syslog unnecessarily, so only do it if
+    # the parameters have changed.
+    my $new_params = $self->_log_params;
+    if ((not defined $log_params) or ($log_params ne $new_params)) {
 
-        # First time in, note the parameters we used, and open the log>
-        $log_params = $self->_log_params;
+        $log_params = $new_params;
         openlog($self->{name}, $self->{options}, $self->{facility});
-    }
-    else {
-
-        # After that, warn if the check the parameters have changed.
-        if ($log_params ne $self->_log_params) {
-            cluck('Attempting to reinitialize Log::Any::Adapter::Syslog with new parameters');
-        }
     }
 
     return $self;
@@ -81,17 +71,17 @@ foreach my $method (Log::Any->detection_methods()) {
 
 1;
 
-=pod
+__END__
 
-=encoding utf8
+=pod
 
 =head1 NAME
 
-Log::Any::Adapter::Syslog - send Log::Any logs to syslog
+Log::Any::Adapter::Syslog - Send Log::Any logs to syslog
 
 =head1 VERSION
 
-version 1.3
+version 1.4
 
 =head1 SYNOPSIS
 
@@ -150,7 +140,7 @@ options.  So, if you want C<LOG_PID> as well as other flags, pass them all.
 =item facility
 
 The I<facility> determines where syslog sends your messages.  The default is
-C<LOCAL7>, which is not the most useful value ever, but is less bad that
+C<LOCAL7>, which is not the most useful value ever, but is less bad than
 assuming the fixed facilities.
 
 See L<Unix::Syslog> and L<syslog(3)> for details on the available facilities.
@@ -159,21 +149,23 @@ See L<Unix::Syslog> and L<syslog(3)> for details on the available facilities.
 
 =head1 AUTHORS
 
-=over
+=over 4
 
-=item Daniel Pittman <daniel@rimspace.net>
+=item *
+
+Daniel Pittman <daniel@rimspace.net>
+
+=item *
+
+Stephen Thirlwall <sdt@cpan.org>
 
 =back
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2010 by Daniel Pittman <daniel@rimspace.net>
+This software is copyright (c) 2013 by Stephen Thirlwall.
 
-Log::Any::Adapter::Syslog is provided "as is" and without any express or
-implied warranties, including, without limitation, the implied warranties of
-merchantibility and fitness for a particular purpose.
-
-This program is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
