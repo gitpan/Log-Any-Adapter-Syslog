@@ -2,7 +2,7 @@ NAME
     Log::Any::Adapter::Syslog - Send Log::Any logs to syslog
 
 VERSION
-    version 1.4
+    version 1.5
 
 SYNOPSIS
         use Log::Any::Adapter;

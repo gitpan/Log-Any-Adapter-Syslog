@@ -35,10 +35,10 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Log-Any-Adapter-Syslog
   homepage: http://search.cpan.org/dist/Log-Any-Adapter-Syslog
   repository: git://github.com/sdt/log-any-adapter-syslog.git
-version: 1.4
+version: 1.5
 x_Dist_Zilla:
   perl:
-    version: 5.016002
+    version: 5.016000
   plugins:
     -
       class: Dist::Zilla::Plugin::Git::NextVersion

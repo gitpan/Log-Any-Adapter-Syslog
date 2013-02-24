@@ -66,10 +66,10 @@
          "web" : "https://github.com/sdt/log-any-adapter-syslog"
       }
    },
-   "version" : "1.4",
+   "version" : "1.5",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.016002"
+         "version" : "5.016000"
       },
       "plugins" : [
          {

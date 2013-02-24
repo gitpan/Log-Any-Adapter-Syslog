@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 # ABSTRACT: Send Log::Any logs to syslog
-our $VERSION = '1.4'; # VERSION
+our $VERSION = '1.5'; # VERSION
 
 use Log::Any::Adapter::Util qw{make_method};
 use base qw{Log::Any::Adapter::Base};
@@ -71,7 +71,7 @@ foreach my $method (Log::Any->detection_methods()) {
 
 1;
 
-__END__
+
 
 =pod
 
@@ -81,7 +81,7 @@ Log::Any::Adapter::Syslog - Send Log::Any logs to syslog
 
 =head1 VERSION
 
-version 1.4
+version 1.5
 
 =head1 SYNOPSIS
 
@@ -169,3 +169,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+
